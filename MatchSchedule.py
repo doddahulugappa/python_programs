@@ -1,3 +1,10 @@
+"""
+14 teams play 1 game per day (7 games per day) over 26 days.
+Every team play against each other twice. 1 home game and 1 away game.
+Every team play a Home game and an Away game every other day.
+A team can not play against itself. So each team got 13/14 opponents.
+"""
+
 from pprint import pprint as pp
 
 def make_day(num_teams, day):
