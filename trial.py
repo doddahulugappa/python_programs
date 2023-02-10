@@ -1,28 +1,4 @@
-# you can write to stdout for debugging purposes, e.g.
-# print("this is a debug message")
 
-def solution(A):
-    # write your code in Python 3.6
-    dict_sum = {}
-    for i in range(len(A)):
-        temp_sum_of_digits = 0
-        num = A[i]
-        while num:
-            temp_sum_of_digits += num % 10
-            num = num // 10
-        dict_sum[i] = [temp_sum_of_digits, i]
-
-    print(dict_sum)
-
-    sum_of_two = {}
-    for key, value in dict_sum.items():
-        sum_of_two[value[0]] = value[1]
-
-    print(sum_of_two)
-
-
-A = [51, 71, 17, 42]
-solution(A)
 
 
 def staircase(n):
@@ -41,13 +17,13 @@ import sys
 
 
 #
-# Complete the 'timeConversion' function below.
+# Complete the 'time_conversion' function below.
 #
 # The function is expected to return a STRING.
 # The function accepts STRING s as parameter.
 #
 
-def timeConversion(s):
+def time_conversion(s):
     # Write your code here
     if re.search(r"[01]\d:[0-5]\d:[0-5]\d[AP]M", s) is None:
         return
@@ -65,11 +41,11 @@ def timeConversion(s):
 
 
 if __name__ == '__main__':
-    fptr = open("timeconversion", 'w')
+    fptr = open("time_conversion", 'w')
 
     s = input()
 
-    result = timeConversion(s)
+    result = time_conversion(s)
 
     fptr.write(result + '\n')
 
