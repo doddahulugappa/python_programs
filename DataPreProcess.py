@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('C:\\Users\\dodda\\Downloads\\transactions-2022-10-25.csv')
+df = pd.read_csv('data\\sample.txt')
 
 print(df.info)
 

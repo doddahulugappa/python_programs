@@ -9,6 +9,7 @@ def balance(sequence):
         else:
             return not sequence
 
+
 print(balance("(){}[]"))
 print(balance("(){[]"))
 print(balance("{[]}"))

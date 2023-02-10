@@ -7,11 +7,11 @@ def solve(s):
         if item.isalpha():
             result.append(item.title())
 
-
     for word in result:
         if word.lower() in s:
             s = s.replace(word.lower(), word)
     return s
 
-s="hello world"
+
+s = "hello world"
 print(solve(s))

@@ -1,6 +1,4 @@
-from Tkinter import *
-
-import time
+from tkinter import *
 
 count = 10
 colours = ['black', 'red', 'yellow', 'green']
@@ -20,15 +18,15 @@ def countdown(count):
         # call countdown again after 1000ms (1s)
         root.after(1000, countdown, count - 1)
 
-    if count > -1 and count < 6 or count > -6 and count < 0:
+    if -1 < count < 6 or -6 < count < 0:
         label_stop_text["bg"] = "red"
         label_ready_text["bg"] = "grey"
         label_go_text["bg"] = "grey"
-    if count > 5 and count < 10 or count > -11 and count < -5:
+    if 5 < count < 10 or -11 < count < -5:
         label_ready_text["bg"] = "yellow"
         label_go_text["bg"] = "grey"
         label_stop_text["bg"] = "grey"
-    if count > 10 or count > -16 and count < -10:
+    if count > 10 or -16 < count < -10:
         label_go_text["bg"] = "green"
         label_stop_text["bg"] = "grey"
         label_ready_text["bg"] = "grey"

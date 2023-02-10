@@ -1,3 +1,5 @@
+from collections import Counter
+
 
 def char_counter(string):
     char_count = {}
@@ -9,5 +11,8 @@ def char_counter(string):
 
     return char_count
 
-string="Hello"
+
+string = "Hello"
 print(char_counter(string))
+
+print(Counter(string))

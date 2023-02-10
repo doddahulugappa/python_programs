@@ -1,6 +1,6 @@
 def online_count(dict1):
-    newDict = dict(filter(lambda elem: elem[1] == "online", dict1.items()))
-    return len(newDict)
+    new_dict = dict(filter(lambda elem: elem[1] == "online", dict1.items()))
+    return len(new_dict)
 
 
 statuses = {

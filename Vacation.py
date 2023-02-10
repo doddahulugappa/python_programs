@@ -1,5 +1,4 @@
 def vacation(A):
-
     # Get all unique vacation locations
     v_set = set(A)
     a_l = len(A)
@@ -37,5 +36,6 @@ def vacation(A):
 
     return day_count
 
-a = [7,2,3,4,3,2,2,7,2,3]
+
+a = [7, 2, 3, 4, 3, 2, 2, 7, 2, 3]
 print(vacation(a))
