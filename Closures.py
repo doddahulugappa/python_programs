@@ -4,6 +4,7 @@ that remembers and has access to variables in the local scope in which it was cr
 even after the outer function has finished executing
 """
 
+
 def increment(start):
     def inc(step=1):
         nonlocal start
