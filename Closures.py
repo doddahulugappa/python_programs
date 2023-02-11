@@ -1,3 +1,9 @@
+"""
+Closure in Python is an inner function object, a function that behaves like an object,
+that remembers and has access to variables in the local scope in which it was created
+even after the outer function has finished executing
+"""
+
 def increment(start):
     def inc(step=1):
         nonlocal start
