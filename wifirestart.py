@@ -1,14 +1,14 @@
 import telnetlib
 import time
-import re
 import subprocess
 import os
 
 resCount = 0
 pingCount = 0
 
+
 def restart():
-    hostserver = "1.1.1.1"
+    hostserver = ""
     newline = "\n"
     username = "" + newline
     password = "" + newline
@@ -40,8 +40,8 @@ def ping():
         ping = subprocess.Popen(["ping", website], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = ping.communicate()
         if out:
-            print(out,"\n\nPing OutPut")
-            if "Reply from "  in str(out) and not "unreachable" in str(out):
+            print(out, "\n\nPing OutPut")
+            if "Reply from " in str(out) and not "unreachable" in str(out):
                 return True
             else:
                 return False
@@ -64,8 +64,7 @@ try:
         print('ping ok')
         restart()
         time.sleep(10)
-except Exception:
+except Exception as e:
     time.sleep(2)
-    print("Unable to restart")
+    print("Unable to restart", e)
 time.sleep(2)
-

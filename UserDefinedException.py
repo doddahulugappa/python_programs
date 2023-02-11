@@ -1,6 +1,7 @@
 class SalaryException(Exception):
     pass
 
+
 def process_salary(name, salary):
     try:
         if salary <= 0:
@@ -9,6 +10,12 @@ def process_salary(name, salary):
     except SalaryException:
         print("Invalid Salary")
 
-process_salary("HULI",23000)
-process_salary("Shree",0)
+    else:
+        print("Has salary")
 
+    finally:
+        print("Everyone should have salary > 0")
+
+
+process_salary("HULI", 23000)
+process_salary("Shree", 0)

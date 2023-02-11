@@ -10,7 +10,7 @@ def solution(S):
     n = len(S)
 
     # Create a table to store
-    # results of subproblems
+    # results of sub problems
     L = [[0 for x in range(n)] for y in range(n)]
 
     # Sings of length 1 are palindrome of length 1

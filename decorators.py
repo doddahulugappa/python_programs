@@ -47,3 +47,21 @@ def my_name():
 
 
 print(my_name())
+
+
+def add_currency(function):
+    def append_currency():
+        func = function()
+        func = f"{func} $"
+        return func
+
+    return append_currency
+
+
+@add_currency
+def display_money():
+    return 100
+
+
+disp_money = display_money
+print(disp_money())
