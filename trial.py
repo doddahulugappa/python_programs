@@ -1,10 +1,10 @@
 
-
-
 def staircase(n):
     # Write your code here
     for i in range(n):
-        print(" "*(n-(i+1))+"#"*(i+1))
+        print("  " *( n -( i +1) ) +"# " *( i +1))
+
+
 staircase(6)
 
 # !/bin/python3
@@ -41,12 +41,7 @@ def time_conversion(s):
 
 
 if __name__ == '__main__':
-    fptr = open("time_conversion", 'w')
-
     s = input()
 
     result = time_conversion(s)
-
-    fptr.write(result + '\n')
-
-    fptr.close()
+    print(result)

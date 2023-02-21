@@ -2,15 +2,15 @@
 import re
 
 
-
 def xyz(text):
     for char in text:
         if char.isalnum():
-            chars = re.findall(char+char,text)
+            chars = re.findall(char + char, text)
             # print(chars)
             if any([len(item) > 1 for item in chars]):
                 return char
     return -1
+
 
 text = input()
 print(xyz(text))

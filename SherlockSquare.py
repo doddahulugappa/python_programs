@@ -7,26 +7,25 @@ import re
 import sys
 
 
-#
 # Complete the 'squares' function below.
 #
 # The function is expected to return an INTEGER.
 # The function accepts following parameters:
 #  1. INTEGER a
 #  2. INTEGER b
-#
+
 
 def squares(a, b):
     # Write your code
-    numOfSquares = 0;
-    x = 1;
-    while (x * x < a):
+    numOfSquares = 0
+    x = 1
+    while x * x < a:
         x += 1
-    while (x * x <= b):
+    while x * x <= b:
         numOfSquares += 1
         x += 1
 
-    return numOfSquares;
+    return numOfSquares
 
 
 if __name__ == '__main__':
