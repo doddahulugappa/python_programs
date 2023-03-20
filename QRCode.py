@@ -7,8 +7,8 @@ qr = qrcode.QRCode(
     box_size=10,
     border=4,
 )
-qr.add_data('https://github.com/doddahulugappa/')
+url = 'https://github.com/doddahulugappa/'
+qr.add_data(url)
 qr.make(fit=True)
-
 img = qr.make_image(fill_color="black", back_color="white", image_factory=StyledPilImage)
 img.save("qrcode.png")
