@@ -17,5 +17,4 @@ async def hello(uri):
         print(await websocket.recv())
 
 
-
 asyncio.run(hello("ws://localhost:8001"))
