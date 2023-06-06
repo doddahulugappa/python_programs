@@ -35,7 +35,6 @@ def solution(S):
     return L[0][n - 1]
 
 
-
 def minimumNumberOfDeletions(str):
     """
     # function to calculate minimum number of deletions
@@ -48,36 +47,11 @@ def minimumNumberOfDeletions(str):
     l = solution(str)
 
     # After removing characters other than the long_poly_sub, we get palindrome.
-    return (n - l)
+    return n - l
+
 
 string = "ervervige"
 print(minimumNumberOfDeletions(string))
-
-l1 = ['1', '2', '3', 8, 9]
-l2 = [3,6,8]
-a = 5
-b = 10
-print(a,"+",b,"=",a+b,"(a+b)")
-l3 = []
-for i,j in enumerate(l1):
-    print(i,"===>",j)
-    if i%2 == 1:
-        l3.append(j)
-for i,j in enumerate(l2):
-    if i%2 == 0:
-        l3.append(j)
-print(l3)
-
-
-def square(x):
-    return x*x
-
-l1 = [ 1, 2 , 3, 4, 5]
-
-squared_list = list(map(square,l1))
-squared_list = list(map(lambda x:x*x,l1))
-print(squared_list)
-
 
 
 

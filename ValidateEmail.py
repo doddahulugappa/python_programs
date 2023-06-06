@@ -11,9 +11,9 @@ def is_valid(email):
 
 
 is_valid("name.surname@gmail.com")
-is_valid("anonymous123@yahoo.co.uk")
+is_valid("anonymous123@mn.co.uk")
 is_valid("anonymous123@...uk")
 is_valid("...@domain.us")
-is_valid("lara@hackerrank.com")
-is_valid("brian-23@hackerrank.com")
-is_valid("britts_54@hackerrank.com")
+is_valid("lara@mnnnnnnnnnn.com")
+is_valid("brian-23@bcb.com")
+is_valid("britts_54@jhgj.com")
