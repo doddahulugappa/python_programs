@@ -4,9 +4,9 @@ import os
 import ssl
 
 
-url = 'http://53f9c17f-4f1e-4e77-ac2e-4a644b847be4.eastus2.azurecontainer.io/score'
+url = 'http://53f9c17f-4f1e-4e77-ac2e-4a644b847be4.eastus2.azurecontainer.io/score'  # paste here ML endpoint
 # Replace this with the primary/secondary key or AMLToken for the endpoint
-api_key = ''
+api_key = ''  # paste ur api key here
 
 def allowSelfSignedHttps(allowed):
     # bypass the server certificate verification on client side
