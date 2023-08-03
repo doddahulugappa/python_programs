@@ -17,27 +17,28 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 import numpy as np
 import matplotlib.pyplot as plt
+
 # get_ipython().run_line_magic('matplotlib', 'inline')
 
 # load the training dataset
 # get_ipython().system('wget https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/Data/ml-basics/daily-bike-share.csv')
-bike_data = pd.read_csv('https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/Data/ml-basics/daily-bike-share.csv')
+bike_data = pd.read_csv(
+    'https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/Data/ml-basics/daily-bike-share.csv')
 bike_data['day'] = pd.DatetimeIndex(bike_data['dteday']).day
 numeric_features = ['temp', 'atemp', 'hum', 'windspeed']
-categorical_features = ['season','mnth','holiday','weekday','workingday','weathersit', 'day']
+categorical_features = ['season', 'mnth', 'holiday', 'weekday', 'workingday', 'weathersit', 'day']
 bike_data[numeric_features + ['rentals']].describe()
 print(bike_data.head())
 
-
 # Separate features and labels
 # After separating the dataset, we now have numpy arrays named **X** containing the features, and **y** containing the labels.
-X, y = bike_data[['season','mnth', 'holiday','weekday','workingday','weathersit','temp', 'atemp', 'hum', 'windspeed']].values, bike_data['rentals'].values
+X, y = bike_data[['season', 'mnth', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum',
+                  'windspeed']].values, bike_data['rentals'].values
 
 # Split data 70%-30% into training set and test set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=0)
 
-print ('Training Set: %d rows\nTest Set: %d rows' % (X_train.shape[0], X_test.shape[0]))
-
+print('Training Set: %d rows\nTest Set: %d rows' % (X_train.shape[0], X_test.shape[0]))
 
 # Now we have the following four datasets:
 #
@@ -69,7 +70,7 @@ from sklearn.linear_model import Lasso
 
 # Fit a lasso model on the training set
 model = Lasso().fit(X_train, y_train)
-print (model, "\n")
+print(model, "\n")
 
 # Evaluate the model using the test data
 predictions = model.predict(X_test)
@@ -88,9 +89,8 @@ plt.title('Daily Bike Share Predictions')
 # overlay the regression line
 z = np.polyfit(y_test, predictions, 1)
 p = np.poly1d(z)
-plt.plot(y_test,p(y_test), color='magenta')
+plt.plot(y_test, p(y_test), color='magenta')
 plt.show()
-
 
 # ### Try a Decision Tree Algorithm
 #
@@ -106,12 +106,11 @@ from sklearn.tree import export_text
 
 # Train the model
 model = DecisionTreeRegressor().fit(X_train, y_train)
-print (model, "\n")
+print(model, "\n")
 
 # Visualize the model tree
 tree = export_text(model)
 print(tree)
-
 
 # So now we have a tree-based model; but is it any good? Let's evaluate it with the test data.
 
@@ -135,9 +134,8 @@ plt.title('Daily Bike Share Predictions')
 # overlay the regression line
 z = np.polyfit(y_test, predictions, 1)
 p = np.poly1d(z)
-plt.plot(y_test,p(y_test), color='magenta')
+plt.plot(y_test, p(y_test), color='magenta')
 plt.show()
-
 
 # The tree-based model doesn't seem to have improved over the linear model, so what else could we try?
 #
@@ -154,7 +152,7 @@ from sklearn.ensemble import RandomForestRegressor
 
 # Train the model
 model = RandomForestRegressor().fit(X_train, y_train)
-print (model, "\n")
+print(model, "\n")
 
 # Evaluate the model using the test data
 predictions = model.predict(X_test)
@@ -173,9 +171,8 @@ plt.title('Daily Bike Share Predictions')
 # overlay the regression line
 z = np.polyfit(y_test, predictions, 1)
 p = np.poly1d(z)
-plt.plot(y_test,p(y_test), color='magenta')
+plt.plot(y_test, p(y_test), color='magenta')
 plt.show()
-
 
 # For good measure, let's also try a *boosting* ensemble algorithm. We'll use a Gradient Boosting estimator, which like a Random Forest algorithm builds multiple trees, but instead of building them all independently and taking the average result, each tree is built on the outputs of the previous one in an attempt to incrementally reduce the *loss* (error) in the model.
 
@@ -187,7 +184,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 
 # Fit a lasso model on the training set
 model = GradientBoostingRegressor().fit(X_train, y_train)
-print (model, "\n")
+print(model, "\n")
 
 # Evaluate the model using the test data
 predictions = model.predict(X_test)
@@ -206,9 +203,8 @@ plt.title('Daily Bike Share Predictions')
 # overlay the regression line
 z = np.polyfit(y_test, predictions, 1)
 p = np.poly1d(z)
-plt.plot(y_test,p(y_test), color='magenta')
+plt.plot(y_test, p(y_test), color='magenta')
 plt.show()
-
 
 # ## Summary
 #
@@ -218,7 +214,3 @@ plt.show()
 # To learn more about Scikit-Learn, see the [Scikit-Learn documentation](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics).
 
 # In[ ]:
-
-
-
-

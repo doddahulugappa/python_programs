@@ -35,9 +35,9 @@ import pandas as pd
 
 # load the training dataset
 # get_ipython().system('wget https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/Data/ml-basics/daily-bike-share.csv')
-bike_data = pd.read_csv('https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/Data/ml-basics/daily-bike-share.csv')
+bike_data = pd.read_csv(
+    'https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/Data/ml-basics/daily-bike-share.csv')
 bike_data.head()
-
 
 # The data consists of the following columns:
 # 
@@ -66,7 +66,6 @@ bike_data.head()
 bike_data['day'] = pd.DatetimeIndex(bike_data['dteday']).day
 bike_data.head(32)
 
-
 # OK, let's start our analysis of the data by examining a few key descriptive statistics. We can use the dataframe's **describe** method to generate these for the numeric features as well as the **rentals** label column.
 
 # In[3]:
@@ -74,7 +73,6 @@ bike_data.head(32)
 
 numeric_features = ['temp', 'atemp', 'hum', 'windspeed']
 bike_data[numeric_features + ['rentals']].describe()
-
 
 # The statistics reveal some information about the distribution of the data in each of the numeric fields, including the number of observations (there are 731 records), the mean, standard deviation, minimum and maximum values, and the quartile values (the threshold values for 25%, 50% - which is also the median, and 75% of the data). From this, we can see that the mean number of daily rentals is around 848; but there's a comparatively large standard deviation, indicating a lot of variance in the number of rentals per day.
 # 
@@ -92,9 +90,8 @@ import matplotlib.pyplot as plt
 # Get the label column
 label = bike_data['rentals']
 
-
 # Create a figure for 2 subplots (2 rows, 1 column)
-fig, ax = plt.subplots(2, 1, figsize = (9,12))
+fig, ax = plt.subplots(2, 1, figsize=(9, 12))
 
 # Plot the histogram   
 ax[0].hist(label, bins=100)
@@ -114,7 +111,6 @@ fig.suptitle('Rental Distribution')
 # Show the figure
 fig.show()
 
-
 # The plots show that the number of daily rentals ranges from 0 to just over 3,400. However, the mean (and median) number of daily rentals is closer to the low end of that range, with most of the data between 0 and around 2,200 rentals. The few values above this are shown in the box plot as small circles, indicating that they are *outliers* - in other words, unusually high or low values beyond the typical range of most of the data.
 # 
 # We can do the same kind of visual exploration of the numeric features. Let's create a histogram for each of these.
@@ -127,12 +123,11 @@ for col in numeric_features:
     fig = plt.figure(figsize=(9, 6))
     ax = fig.gca()
     feature = bike_data[col]
-    feature.hist(bins=100, ax = ax)
+    feature.hist(bins=100, ax=ax)
     ax.axvline(feature.mean(), color='magenta', linestyle='dashed', linewidth=2)
     ax.axvline(feature.median(), color='cyan', linestyle='dashed', linewidth=2)
     ax.set_title(col)
 plt.show()
-
 
 # The numeric features seem to be more *normally* distributed, with the mean and median nearer the middle of the range of values, coinciding with where the most commonly occurring values are.
 # 
@@ -146,18 +141,17 @@ plt.show()
 import numpy as np
 
 # plot a bar plot for each categorical feature count
-categorical_features = ['season','mnth','holiday','weekday','workingday','weathersit', 'day']
+categorical_features = ['season', 'mnth', 'holiday', 'weekday', 'workingday', 'weathersit', 'day']
 
 for col in categorical_features:
     counts = bike_data[col].value_counts().sort_index()
     fig = plt.figure(figsize=(9, 6))
     ax = fig.gca()
-    counts.plot.bar(ax = ax, color='steelblue')
+    counts.plot.bar(ax=ax, color='steelblue')
     ax.set_title(col + ' counts')
-    ax.set_xlabel(col) 
+    ax.set_xlabel(col)
     ax.set_ylabel("Frequency")
 plt.show()
-
 
 # Many of the categorical features show a more or less *uniform* distribution (meaning there's roughly the same number of rows for each category). Exceptions to this include:
 # 
@@ -184,7 +178,6 @@ for col in numeric_features:
     ax.set_title('rentals vs ' + col + '- correlation: ' + str(correlation))
 plt.show()
 
-
 # The results aren't conclusive, but if you look closely at the scatter plots for **temp** and **atemp**, you can see a vague diagonal trend showing that higher rental counts tend to coincide with higher temperatures; and a correlation value of just over 0.5 for both of these features supports this observation. Conversely, the plots for **hum** and **windspeed** show a slightly negative correlation, indicating that there are fewer rentals on days with high humidity or windspeed.
 # 
 # Now let's compare the categorical features to the label. We'll do this by creating box plots that show the distribution of rental counts for each category.
@@ -196,11 +189,10 @@ plt.show()
 for col in categorical_features:
     fig = plt.figure(figsize=(9, 6))
     ax = fig.gca()
-    bike_data.boxplot(column = 'rentals', by = col, ax = ax)
+    bike_data.boxplot(column='rentals', by=col, ax=ax)
     ax.set_title('Label by ' + col)
     ax.set_ylabel("Bike Rentals")
 plt.show()
-
 
 # The plots show some variance in the relationship between some category values and rentals. For example, there's a clear difference in the distribution of rentals on weekends (**weekday** 0 or 6) and those during the working week (**weekday** 1 to 5). Similarly, there are notable differences for **holiday** and **workingday** categories. There's a noticeable trend that shows different rental distributions in spring and summer months compared to winter and fall months. The **weathersit** category also seems to make a difference in rental distribution. The **day** feature we created for the day of the month shows little variation, indicating that it's probably not predictive of the number of rentals.
 
@@ -212,9 +204,9 @@ plt.show()
 
 
 # Separate features and labels
-X, y = bike_data[['season','mnth', 'holiday','weekday','workingday','weathersit','temp', 'atemp', 'hum', 'windspeed']].values, bike_data['rentals'].values
-print('Features:',X[:10], '\nLabels:', y[:10], sep='\n')
-
+X, y = bike_data[['season', 'mnth', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum',
+                  'windspeed']].values, bike_data['rentals'].values
+print('Features:', X[:10], '\nLabels:', y[:10], sep='\n')
 
 # After separating the dataset, we now have numpy arrays named **X** containing the features, and **y** containing the labels.
 # 
@@ -230,8 +222,7 @@ from sklearn.model_selection import train_test_split
 # Split data 70%-30% into training set and test set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=0)
 
-print ('Training Set: %d rows\nTest Set: %d rows' % (X_train.shape[0], X_test.shape[0]))
-
+print('Training Set: %d rows\nTest Set: %d rows' % (X_train.shape[0], X_test.shape[0]))
 
 # Now we have the following four datasets:
 # 
@@ -252,8 +243,7 @@ from sklearn.linear_model import LinearRegression
 
 # Fit a linear regression model on the training set
 model = LinearRegression().fit(X_train, y_train)
-print (model)
-
+print(model)
 
 # ### Evaluate the Trained Model
 # 
@@ -267,8 +257,7 @@ import numpy as np
 predictions = model.predict(X_test)
 np.set_printoptions(suppress=True)
 print('Predicted labels: ', np.round(predictions)[:10])
-print('Actual labels   : ' ,y_test[:10])
-
+print('Actual labels   : ', y_test[:10])
 
 # Comparing each prediction with its corresponding "ground truth" actual value isn't a very efficient way to determine how well the model is predicting. Let's see if we can get a better indication by visualizing a scatter plot that compares the predictions to the actual labels. We'll also overlay a trend line to get a general sense for how well the predicted labels align with the true labels.
 
@@ -286,9 +275,8 @@ plt.title('Daily Bike Share Predictions')
 # overlay the regression line
 z = np.polyfit(y_test, predictions, 1)
 p = np.poly1d(z)
-plt.plot(y_test,p(y_test), color='magenta')
+plt.plot(y_test, p(y_test), color='magenta')
 plt.show()
-
 
 # There's a definite diagonal trend, and the intersections of the predicted and actual values are generally following the path of the trend line; but there's a fair amount of difference between the ideal function represented by the line and the results. This variance represents the *residuals* of the model - in other words, the difference between the label predicted when the model applies the coefficients it learned during training to the validation data, and the actual value of the validation label. These residuals when evaluated from the validation data indicate the expected level of *error* when the model is used with new data for which the label is unknown.
 # 
@@ -315,7 +303,6 @@ print("RMSE:", rmse)
 
 r2 = r2_score(y_test, predictions)
 print("R2:", r2)
-
 
 # So now we've quantified the ability of our model to predict the number of rentals. It definitely has *some* predictive power, but we can probably do better!
 # 
