@@ -1,12 +1,3 @@
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-#
 # Complete the 'plusMinus' function below.
 #
 # The function accepts INTEGER_ARRAY arr as parameter.
@@ -27,8 +18,9 @@ def plusMinus(arr):
     a = "{:.6f}".format(count_positive / len(arr))
     b = "{:.6f}".format(count_negative / len(arr))
     c = "{:.6f}".format(count_zero / len(arr))
-    print(a + "\n" + b +"\n"+ c)
-    return a + "\n" + b +"\n"+ c
+    print(a + "\n" + b + "\n" + c)
+    return a + "\n" + b + "\n" + c
+
 
 if __name__ == '__main__':
     n = int(input().strip())

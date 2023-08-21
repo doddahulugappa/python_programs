@@ -19,7 +19,7 @@ try:
 
 
     # Create a file in the local data directory to upload and download
-    local_file_name = "trial1.py"
+    local_file_name = "programs.py"
     upload_file_path = os.path.join("./", local_file_name)
 
     # Write text to the file

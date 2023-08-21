@@ -72,6 +72,7 @@ class Solution:
         else:
             return self.generate_pascal_triangle_binomial(n)
 
+
 solution = Solution(api="api")
 result = solution.generate_pascal_triangle_summation(int(input("enter n:")))
 print(result)

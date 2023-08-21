@@ -4,7 +4,7 @@ import re
 pdfFileObj = open("C:\\Users\\dodda\\Downloads\\1BGG882.pdf", 'rb')
 
 pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
-pdfReader.numPages
+print(pdfReader.numPages)
 pageObj = pdfReader.getPage(0)
 mytext = pageObj.extractText()
 filename = r'C:/Users/dodda/Downloads/diskpartioninfo.txt'

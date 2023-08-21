@@ -38,7 +38,6 @@ def solution(S):
                 flag = 1
                 break
 
-
             else:
                 return "No"
     if flag:
@@ -46,10 +45,10 @@ def solution(S):
     else:
         return "NO"
 
+
 print(solution("?ab??a"))
 print(solution("bab??a"))
 print(solution("?a?"))
 print(solution("m?da?"))
 print(solution("mal?yal??"))
 print(solution("mal???"))
-
