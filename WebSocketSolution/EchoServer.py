@@ -1,11 +1,15 @@
 import asyncio
+import time
+
 from websockets import serve
 
 
 async def echo(websocket):
     async for message in websocket:
-        print(await websocket.recv())
-        await websocket.send(message)
+        print(message)
+        # print(await websocket.recv())
+        # time.sleep(1)
+        # await websocket.send(message)
 
 
 async def main():
