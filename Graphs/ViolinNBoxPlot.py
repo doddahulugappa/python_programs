@@ -21,13 +21,14 @@ corr_df = corr_df.sort_index().T
 # Set up the matplotlib figure
 f, ax = plt.subplots(1, 2, figsize=(11, 6))
 
-# Draw a violinplot with a narrower bandwidth than the default
+# Draw a Violin plot with a narrower bandwidth than the default
 sns.violinplot(data=corr_df, bw_adjust=.5, cut=1, linewidth=1, palette="Set3", ax=ax[0])
 
 # Finalize the figure
 ax[0].set(ylim=(-.7, 1.05))
 sns.despine(left=True, bottom=True)
 
+# Draw a Box plot with a narrower bandwidth than the default
 sns.boxplot(data=corr_df, linewidth=1, palette="Set3", ax=ax[1])
 
 # Finalize the figure
