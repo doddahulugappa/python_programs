@@ -13,7 +13,7 @@ def heart_b(k):
            math.cos(k * 4)
 
 
-speed(1000)
+speed(6000)
 bgcolor("black")
 
 for i in range(6000):
