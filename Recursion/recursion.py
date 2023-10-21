@@ -64,3 +64,4 @@ print(f"gcd(18, 12) is {gcd(18, 12)}")
 print(f"gcd(3, 5) is {gcd(3, 5)}")
 print(f"gcd(1, 5) is {gcd(1, 5)}")
 print(f"gcd(30, 45) is {gcd(30, 45)}")
+
