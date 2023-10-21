@@ -1,13 +1,11 @@
 import collections
-box = [1,3,5,2,4]
-quantity = [6,8,10,7,9]
+
+box = [1, 3, 5, 2, 4]
+quantity = [6, 8, 10, 7, 9]
 
 most_com = collections.Counter(quantity)
 
-
 truck_size = 7
-
-
 
 dict_obj = dict(zip(box, quantity))
 

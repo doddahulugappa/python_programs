@@ -7,7 +7,7 @@ def merge_the_tools(string, k):
         return
     # your code goes here
     i = 0
-    while (True):
+    while True:
         output = string[i:i + k]
         temp_char = ""
         for char in output:
