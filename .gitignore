@@ -3,7 +3,8 @@
 *.iml
 *.png
 
-/venv
+venv
 
 venv/
-*.log
+env/
+
