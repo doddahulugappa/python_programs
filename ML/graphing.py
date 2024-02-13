@@ -47,17 +47,17 @@ colours_trendline = px.colors.qualitative.Set1
 
 
 def _to_human_readable(text: str):
-    '''
-    Converts a label into a human readable form
-    '''
+    """
+    Converts a label into a human-readable form
+    """
     return text.replace("_", " ")
 
 
 def _prepare_labels(df: pandas.DataFrame, labels: List[Optional[str]], replace_nones: bool = True):
-    '''
+    """
     Ensures labels are human readable.
     Automatically picks data if labels not provided explicitly
-    '''
+    """
 
     human_readable = {}
 
@@ -83,7 +83,7 @@ def box_and_whisker(df: pandas.DataFrame,
                     label_x2: Optional[str] = None,
                     title=None,
                     show: bool = False):
-    '''
+    """
     Creates a box and whisker plot and optionally shows it. Returns the figure for that plot.
 
     Note that if calling this from jupyter notebooks and not capturing the output
@@ -97,7 +97,7 @@ def box_and_whisker(df: pandas.DataFrame,
     show:   appears on screen. NB that this is not needed if this is called from a
             notebook and the output is not captured
 
-    '''
+    """
 
     # Automatically pick columns if not specified
     selected_columns, axis_labels = _prepare_labels(df, [label_x, label_y, label_x2],
@@ -127,7 +127,7 @@ def histogram(df: pandas.DataFrame,
               include_boxplot=False,
               histfunc: Optional[str] = None,
               show: bool = False):
-    '''
+    """
     Creates a 2D histogram and optionally shows it. Returns the figure for that histogram.
 
     Note that if calling this from jupyter notebooks and not capturing the output
@@ -143,7 +143,7 @@ def histogram(df: pandas.DataFrame,
     show:   appears on screen. NB that this is not needed if this is called from a
             notebook and the output is not captured
 
-    '''
+    """
 
     # Automatically pick columns if not specified
     selected_columns, axis_labels = _prepare_labels(df, [label_x, label_y, label_colour],
@@ -181,7 +181,7 @@ def multiple_histogram(df: pandas.DataFrame,
                        nbins: Optional[int] = None,
                        title=None,
                        show: bool = False):
-    '''
+    """
     Creates a 2D histogram and optionally shows it. Returns the figure for that histogram.
 
     Note that if calling this from jupyter notebooks and not capturing the output
@@ -195,7 +195,7 @@ def multiple_histogram(df: pandas.DataFrame,
     show:   appears on screen. NB that this is not needed if this is called from a
             notebook and the output is not captured
 
-    '''
+    """
 
     assert (histfunc != 'count') or (label_y == None), "Set histfunc to a value such as sum or avg if using label_y"
 
@@ -246,7 +246,7 @@ def line_2D(
         legend_title: str = "Line",
         title=None,
         show: bool = False):
-    '''
+    """
     Creates a 2D line plot *using functions* and optionally shows it. Returns the figure for that plot.
     If you simply want a line plot using data, call scatter_2D then write fig.update_traces(mode='lines')
 
@@ -262,7 +262,7 @@ def line_2D(
     show:   appears on screen. NB that this is not needed if this is called from a
             notebook and the output is not captured
 
-    '''
+    """
 
     if isinstance(trendline, tuple):
         trendline = [trendline]
@@ -330,7 +330,7 @@ def scatter_2D(df: pandas.DataFrame,
                show: bool = False,
                x_range: Optional[List[float]] = None,
                trendline: Union[Callable, List[Callable], None] = None):
-    '''
+    """
     Creates a 2D scatter plot and optionally shows it. Returns the figure for that scatter.
 
     Note that if calling this from jupyter notebooks and not capturing the output
@@ -346,7 +346,7 @@ def scatter_2D(df: pandas.DataFrame,
     x_range:    Overrides the x-axis range
     trendline:  A function that accepts X (a numpy array) and returns Y (an iterable)
 
-    '''
+    """
 
     # Automatically pick columns if not specified
     selected_columns, axis_labels = _prepare_labels(df, [label_x, label_y, label_colour], [True, True, False])

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Clustering - K-Means and Hierachial
+# # Clustering - K-Means and Hierarchical
 # 
 # In the last notebook, we learned that data can be broken into clusters and learned how to see whether data may be compatible with such an analysis. In this notebook, we will perform this clustering automatically.
 # 

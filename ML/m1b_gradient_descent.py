@@ -4,9 +4,9 @@ import numpy
 class MyModel:
 
     def __init__(self):
-        '''
+        """
         Creates a new MyModel
-        '''
+        """
         # Straight lines described by two parameters:
         # The slop is the angle of the line
         self.slope = 0

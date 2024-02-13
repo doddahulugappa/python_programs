@@ -3,15 +3,19 @@
 
 # # Regression
 # 
-# *Supervised* machine learning techniques involve training a model to operate on a set of *features* and predict a *label* using a dataset that includes some already-known label values. The training process *fits* the features to the known labels to define a general function that can be applied to new features for which the labels are unknown, and predict them. You can think of this function like this, in which ***y*** represents the label we want to predict and ***x*** represents the features the model uses to predict it.
+# *Supervised* machine learning techniques involve training a model to operate on a set of *features* and predict a *label* using a dataset that includes some already-known label values.
+# The training process *fits* the features to the known labels to define a general function that can be applied to new features for which the labels are unknown,
+# and predict them. You can think of this function like this, in which ***y*** represents the label we want to predict and ***x*** represents the features the model uses to predict it.
 # 
 # $$y = f(x)$$
 # 
-# In most cases, *x* is actually a *vector* that consists of multiple feature values, so to be a little more precise, the function could be expressed like this:
+# In most cases, *x* is actually a *vector* that consists of multiple feature values, so to be a little more precise,
+# the function could be expressed like this:
 # 
 # $$y = f([x_1, x_2, x_3, ...])$$
 # 
-# The goal of training the model is to find a function that performs some kind of calculation to the *x* values that produces the result *y*. We do this by applying a machine learning *algorithm* that tries to fit the *x* values to a calculation that produces *y* reasonably accurately for all of the cases in the training dataset.
+# The goal of training the model is to find a function that performs some kind of calculation to the *x* values that produces the result *y*.
+# We do this by applying a machine learning *algorithm* that tries to fit the *x* values to a calculation that produces *y* reasonably accurately for all the cases in the training dataset.
 # 
 # There are lots of machine learning algorithms for supervised learning, and they can be broadly divided into two types:
 # 
@@ -24,11 +28,16 @@
 # 
 # ## Explore the Data
 # 
-# The first step in any machine learning project is to explore the data that you will use to train a model. The goal of this exploration is to try to understand the relationships between its attributes; in particular, any apparent correlation between the *features* and the *label* your model will try to predict. This may require some work to detect and fix issues in the data (such as dealing with missing values, errors, or outlier values), deriving new feature columns by transforming or combining existing features (a process known as *feature engineering*), *normalizing* numeric features (values you can measure or count) so they're on a similar scale, and *encoding* categorical features (values that represent discrete categories) as numeric indicators.
+# The first step in any machine learning project is to explore the data that you will use to train a model.
+# The goal of this exploration is to try to understand the relationships between its attributes; in particular,
+# any apparent correlation between the *features* and the *label* your model will try to predict.
+# This may require some work to detect and fix issues in the data (such as dealing with missing values,
+# errors, or outlier values), deriving new feature columns by transforming or combining existing
+# features (a process known as *feature engineering*), *normalizing* numeric features (values you can measure or count)
+# so they're on a similar scale, and *encoding* categorical features (values that represent discrete categories)
+# as numeric indicators.
 # 
 # Let's start by loading the bicycle sharing data as a **Pandas** DataFrame and viewing the first few rows.
-
-# In[1]:
 
 
 import pandas as pd

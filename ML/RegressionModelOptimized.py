@@ -146,7 +146,7 @@ plt.show()
 #
 # ### Scaling numeric features
 #
-# Normalizing numeric features so they're on the same scale prevents features with large values from producing coefficients that disproportionately affect the predictions. For example, suppose your data includes the following numeric features:
+# Normalizing numeric features, so they're on the same scale prevents features with large values from producing coefficients that disproportionately affect the predictions. For example, suppose your data includes the following numeric features:
 #
 # | A |  B  |  C  |
 # | - | --- | --- |
@@ -337,8 +337,4 @@ for prediction in results:
 # ## Summary
 #
 # That concludes the notebooks for this module on regression. In this notebook we ran a complex regression, tuned it, saved the model, and used it to predict outcomes for the future.
-#
-# ## Further Reading
-#
-# To learn more about Scikit-Learn, see the [Scikit-Learn documentation](https://scikit-learn.org/stable/user_guide.html).
-#
+

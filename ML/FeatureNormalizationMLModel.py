@@ -1,4 +1,30 @@
 #!/usr/bin/env python
+
+
+from m1b_gradient_descent import gradient_descent
+import numpy
+import graphing
+
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import plotly.express as px
+
+"""
+This plot clearly shows that using a standardized dataset allowed our model to converge much faster. Reaching the lowest cost and finding the optimal weights required a much smaller number of iterations.
+
+This is very important when you are developing a new model, because it allows you to iterate quicker; but also when your model is deployed to a production environment, because it requires less compute time for training and costs less than a "slow" model.
+
+Summary
+In this exercise, we covered the following concepts:
+
+- _Feature scaling_ techniques are used to improve the efficiency of training models
+- How to add a standardized feature to a dataset
+- How to visualize standardized features and compare them to their original values
+
+Finally, we compared the performance of models before and after using standardized features, using plots to visualize the improvements.
+"""
+
+
 # coding: utf-8
 
 # # Feature Scaling
@@ -36,10 +62,6 @@ data.head()
 # In[2]:
 
 
-from m1b_gradient_descent import gradient_descent
-import numpy
-import graphing
-
 # Train model using Gradient Descent
 # This method uses custom code that will print out progress as training advances.
 # You don't need to inspect how this works for these exercises, but if you are
@@ -57,7 +79,7 @@ model = gradient_descent(data.month_old_when_trained, data.mean_rescues_per_year
 # In[3]:
 
 
-# Plot the data and trendline after training
+# Plot the data and trend line after training
 graphing.scatter_2D(data, "month_old_when_trained", "mean_rescues_per_year", trendline=model.predict)
 
 # The preceding plot tells us that the younger a dog begins training, the more rescues it be perform in a year.
@@ -77,9 +99,9 @@ data["standardized_age_when_trained"] = (data.month_old_when_trained - numpy.mea
     numpy.std(data.month_old_when_trained))
 
 # Print a sample of the new dataset
-data[:5]
+print(data[:5])
 
-# Notice the the values `standardized_age_when_trained` column above are distributed in a much smaller range (between -2 and 2) and have their mean centered around `0`.
+# Notice the values `standardized_age_when_trained` column above are distributed in a much smaller range (between -2 and 2) and have their mean centered around `0`.
 # 
 # ## Visualizing Scaled Features
 # 
@@ -87,10 +109,6 @@ data[:5]
 
 # In[5]:
 
-
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-import plotly.express as px
 
 fig = px.box(data, y=["month_old_when_trained", "standardized_age_when_trained"])
 fig.show()
@@ -158,18 +176,3 @@ fig = graphing.scatter_2D(df, label_x="number of iterations", label_y="cost", ti
                           label_colour="Model")
 fig.update_traces(mode='lines')
 fig.show()
-
-# This plot clearly shows that using a standardized dataset allowed our model to converge much faster. Reaching the lowest cost and finding the optimal weights required a much smaller number of iterations.
-# 
-# This is very important when you are developing a new model, because it allows you to iterate quicker; but also when your model is deployed to a production environment, because it requires less compute time for training and costs less than a "slow" model.
-
-# ## Summary
-# In this exercise, we covered the following concepts:
-# 
-# - _Feature scaling_ techniques are used to improve the efficiency of training models
-# - How to add a standardized feature to a dataset
-# - How to visualize standardized features and compare them to their original values
-# 
-# Finally, we compared the performance of models before and after using standardized features, using plots to visualize the improvements.
-# 
-#

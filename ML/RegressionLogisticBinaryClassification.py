@@ -3,22 +3,32 @@
 
 # # Classification
 # 
-# *Supervised* machine learning techniques involve training a model to operate on a set of *features* and predict a *label* using a dataset that includes some already-known label values. You can think of this function like this, in which ***y*** represents the label we want to predict and ***X*** represents the vector of features the model uses to predict it.
+# *Supervised* machine learning techniques involve training a model to operate on a set of *features* and predict a
+# *label* using a dataset that includes some already-known label values. You can think of this function like this,
+# in which ***y*** represents the label we want to predict and ***X*** represents the vector of features the model uses
+# to predict it.
 # 
 # $$y = f([x_1, x_2, x_3, ...])$$
 # 
 # 
-# *Classification* is a form of supervised machine learning in which you train a model to use the features (the ***x*** values in our function) to predict a label (***y***) that calculates the probability of the observed case belonging to each of a number of possible classes, and predicting an appropriate label. The simplest form of classification is *binary* classification, in which the label is 0 or 1, representing one of two classes; for example, "True" or "False"; "Internal" or "External"; "Profitable" or "Non-Profitable"; and so on. 
+# *Classification* is a form of supervised machine learning in which you train a model to use the features
+# (the ***x*** values in our function) to predict a label (***y***) that calculates the probability of the observed case
+# belonging to each of a number of possible classes, and predicting an appropriate label. The simplest form of
+# classification is *binary* classification, in which the label is 0 or 1, representing one of two classes; for example,
+# "True" or "False"; "Internal" or "External"; "Profitable" or "Non-Profitable"; and so on.
 # 
 # ## Binary Classification
 # 
-# In this notebook, we will focus on an example of *binary classification*, where the model must predict a label that belongs to one of two classes. In this exercise, we'll train a binary classifier to predict whether or not a patient should be tested for diabetes based on some medical data.
+# In this notebook, we will focus on an example of *binary classification*, where the model must predict a label that
+# belongs to one of two classes. In this exercise, we'll train a binary classifier to predict whether a patient
+# should be tested for diabetes based on some medical data.
 # 
 # ### Explore the data
 # 
 # Run the following cell to load a CSV file of patent data into a **Pandas** dataframe:
 # 
-# > **Citation**: The diabetes dataset used in this exercise is based on data originally collected by the National Institute of Diabetes and Digestive and Kidney Diseases.
+# > **Citation**: The diabetes dataset used in this exercise is based on data originally collected by the National
+# Institute of Diabetes and Digestive and Kidney Diseases.
 
 # 
 
@@ -33,7 +43,11 @@ diabetes = pd.read_csv(
     'https://raw.githubusercontent.com/MicrosoftDocs/mslearn-introduction-to-machine-learning/main/Data/ml-basics/diabetes.csv')
 diabetes.head()
 
-# This data consists of diagnostic information about some patients who have been tested for diabetes. Scroll to the right if necessary, and note that the final column in the dataset (**Diabetic**) contains the value ***0*** for patients who tested negative for diabetes, and ***1*** for patients who tested positive. This is the label that we will train our model to predict; most of the other columns (**Pregnancies**,**PlasmaGlucose**,**DiastolicBloodPressure**, and so on) are the features we will use to predict the **Diabetic** label.
+# This data consists of diagnostic information about some patients who have been tested for diabetes. Scroll to the
+# right if necessary, and note that the final column in the dataset (**Diabetic**) contains the value ***0*** for
+# patients who tested negative for diabetes, and ***1*** for patients who tested positive. This is the label that we
+# will train our model to predict; most of the other columns (**Pregnancies**,**PlasmaGlucose**,
+# **DiastolicBloodPressure**, and so on) are the features we will use to predict the **Diabetic** label.
 # 
 # Let's separate the features from the labels - we'll call the features ***X*** and the label ***y***:
 
