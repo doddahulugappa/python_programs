@@ -10,7 +10,8 @@ class Polygon(ABC):
         pass
 
     def area(self, sides):
-       self.sides = sides
+        self.sides = sides
+
 
 class Triangle(Polygon):
 
@@ -52,4 +53,3 @@ R.noofsides()
 
 K = Hexagon()
 K.noofsides()
-

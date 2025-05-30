@@ -6,6 +6,7 @@ from azure.eventhub.aio import EventHubProducerClient
 EVENT_HUB_CONNECTION_STR = "Endpoint=sb://eventhubbackup12.servicebus.windows.net/;SharedAccessKeyName=mysharedpolicy;SharedAccessKey=TWdHbGKwqO4dJ7r22mwImccHVQ5Lvt2NZ+AEhEKB5tc="
 EVENT_HUB_NAME = "myeventhub123"
 
+
 async def run():
     # Create a producer client to send messages to the event hub.
     # Specify a connection string to your event hubs namespace and
@@ -25,5 +26,6 @@ async def run():
 
         # Send the batch of events to the event hub.
         await producer.send_batch(event_data_batch)
+
 
 asyncio.run(run())

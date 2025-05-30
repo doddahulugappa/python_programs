@@ -22,7 +22,5 @@ class Employee(Person):
 
 
 emp_obj = Employee("Huli", 401)
-
-# calling parent class function
 print(emp_obj.name_)
-print(emp_obj.name)
+print(emp_obj)

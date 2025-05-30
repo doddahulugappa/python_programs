@@ -1,6 +1,5 @@
 from concurrent import futures
 
-import grpc
 import greeting_pb2
 import greeting_pb2_grpc
 
