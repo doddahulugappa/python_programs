@@ -5,7 +5,7 @@ try:
     print("Azure Blob Storage v" + __version__ + " - Python quickstart sample")
 
     # Quick start code goes here
-    AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=shivastoarge;AccountKey=8kzBO3hZ9tdCmPgvR28TuXq==;EndpointSuffix=core.windows.net"
+    AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=shivastoarge;AccountKey=8kzBO3gvR28TuXq==;EndpointSuffix=core.windows.net"
     # Create the BlobServiceClient object which will be used to create a container client
     blob_service_client = BlobServiceClient.from_connection_string(AZURE_STORAGE_CONNECTION_STRING)
 
@@ -19,8 +19,8 @@ try:
 
 
     # Create a file in the local data directory to upload and download
-    local_file_name = "programs.py"
-    upload_file_path = os.path.join("./", local_file_name)
+    local_file_name = "../Programs.py"
+    upload_file_path = os.path.join("../", local_file_name)
 
     # Write text to the file
     file = open(upload_file_path, 'w')
